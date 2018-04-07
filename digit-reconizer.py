@@ -24,3 +24,7 @@ Y_train = train["label"]
 
 # Eliminando la columna de 'label' de la data de entrenamiento
 X_train = train.drop(labels = ["label"],axis = 1)
+
+print('='*80)
+print(X_train.head())
+print(X_train.tail())
