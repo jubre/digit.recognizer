@@ -40,3 +40,7 @@ X_train.isnull().any().describe()
 # Normalize the data
 X_train = X_train / 255.0
 test = test / 255.0
+
+# Reshape image in 3 dimensions (height = 28px, width = 28px , canal = 1)
+X_train = X_train.values.reshape(-1,28,28,1)
+test = test.values.reshape(-1,28,28,1)
