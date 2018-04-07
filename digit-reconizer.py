@@ -7,6 +7,19 @@ import random as rnd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+np.random.seed(2)
+
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import confusion_matrix
+import itertools
+
+from keras.utils.np_utils import to_categorical # convert to one-hot-encoding
+from keras.models import Sequential
+from keras.layers import Dense, Dropout, Flatten, Conv2D, MaxPool2D
+from keras.optimizers import RMSprop
+from keras.preprocessing.image import ImageDataGenerator
+from keras.callbacks import ReduceLROnPlateau
+
 # Lectura de los datos
 train = pd.read_csv('~/.kaggle/competitions/digit-recognizer/train.csv')
 test = pd.read_csv('~/.kaggle/competitions/digit-recognizer/test.csv')
