@@ -33,3 +33,10 @@ print(X_train.tail())
 del train
 g = sns.countplot(Y_train)
 print(Y_train.value_counts())
+
+# Check the data for train
+X_train.isnull().any().describe()
+
+# Normalize the data
+X_train = X_train / 255.0
+test = test / 255.0
