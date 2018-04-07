@@ -28,3 +28,8 @@ X_train = train.drop(labels = ["label"],axis = 1)
 print('='*80)
 print(X_train.head())
 print(X_train.tail())
+
+# Eliminamos la matriz de entreamiento original para liberar espacio
+del train
+g = sns.countplot(Y_train)
+print(Y_train.value_counts())
