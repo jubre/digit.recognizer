@@ -98,3 +98,6 @@ model.add(Dense(10, activation = "softmax"))
 
 # Define the optimizer
 optimizer = RMSprop(lr=0.001, rho=0.9, epsilon=1e-08, decay=0.0)
+
+# Compile the model
+model.compile(optimizer = optimizer , loss = "categorical_crossentropy", metrics=["accuracy"])
