@@ -188,7 +188,7 @@ confusion_mtx = confusion_matrix(Y_true, Y_pred_classes)
 # plot the confusion matrix
 plot_confusion_matrix(confusion_mtx, classes = range(10))
 
-# Display some error results 
+# Display some error results
 
 # Errors are difference between predicted labels and true labels
 errors = (Y_pred_classes - Y_true != 0)
@@ -228,3 +228,12 @@ most_important_errors = sorted_dela_errors[-6:]
 
 # Show the top 6 errors
 display_errors(most_important_errors, X_val_errors, Y_pred_classes_errors, Y_true_errors)
+
+
+# predict results
+results = model.predict(test)
+
+# select the indix with the maximum probability
+results = np.argmax(results,axis = 1)
+
+results = pd.Series(results,name="Label")
