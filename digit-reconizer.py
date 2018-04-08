@@ -130,3 +130,9 @@ datagen = ImageDataGenerator(
 
 
 datagen.fit(X_train)
+
+# Fit the model
+history = model.fit_generator(datagen.flow(X_train,Y_train, batch_size=batch_size),
+                              epochs = epochs, validation_data = (X_val,Y_val),
+                              verbose = 2, steps_per_epoch=X_train.shape[0] // batch_size
+                              , callbacks=[learning_rate_reduction])
