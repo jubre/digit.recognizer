@@ -26,11 +26,11 @@ test = pd.read_csv('~/.kaggle/competitions/digit-recognizer/test.csv')
 combine = [train, test]
 
 # Describiendo la data
-print(train.columns.values)
+#print(train.columns.values)
 
 # Previsualizacion de la data de entrenamiento
-print(train.head())
-print(train.tail())
+#print(train.head())
+#print(train.tail())
 
 # Obteniendo la columna de 'label' de la data de entrenamiento
 Y_train = train["label"]
@@ -38,14 +38,14 @@ Y_train = train["label"]
 # Eliminando la columna de 'label' de la data de entrenamiento
 X_train = train.drop(labels = ["label"],axis = 1)
 
-print('='*80)
-print(X_train.head())
-print(X_train.tail())
+#print('='*80)
+#print(X_train.head())
+#print(X_train.tail())
 
 # Eliminamos la matriz de entreamiento original para liberar espacio
 del train
 g = sns.countplot(Y_train)
-print(Y_train.value_counts())
+#print(Y_train.value_counts())
 
 # Check the data for train
 X_train.isnull().any().describe()
@@ -110,7 +110,7 @@ learning_rate_reduction = ReduceLROnPlateau(monitor='val_acc',
                                             min_lr=0.00001)
 
 # Turn epochs to 30 to get 0.9967 accuracy
-epochs = 1
+epochs = 2
 batch_size = 86
 
 # With data augmentation to prevent overfitting (accuracy 0.99286)
@@ -240,5 +240,6 @@ results = pd.Series(results,name="Label")
 
 # submission
 submission = pd.concat([pd.Series(range(1,28001),name = "ImageId"),results],axis = 1)
+
 
 submission.to_csv("cnn_mnist_datagen.csv",index=False)
