@@ -110,7 +110,7 @@ learning_rate_reduction = ReduceLROnPlateau(monitor='val_acc',
                                             min_lr=0.00001)
 
 # Turn epochs to 30 to get 0.9967 accuracy
-epochs = 5
+epochs = 10
 batch_size = 86
 
 # With data augmentation to prevent overfitting (accuracy 0.99286)
